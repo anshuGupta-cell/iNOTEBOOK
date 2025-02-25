@@ -1,0 +1,19 @@
+
+.box{
+  display: flex;
+  justify-content: space-between;
+}
+.navbar{
+  padding: 0.8rem;
+  background: pink;
+}
+a{
+  background: #E670FF;
+  padding: 0.5rem;
+  font-size: 0.9rem;
+  border-radius: 0.5rem;
+}
+.bax{
+  display: flex;
+  gap: 0.5rem;
+}

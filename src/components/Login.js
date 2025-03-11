@@ -21,7 +21,8 @@ const Login = (props) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-
+    try {
+      
     const response = await fetch(`https://zany-goggles-inotebook-backend.onrender.com/api/auth/login`, {
       method: 'POST',
       headers: {
@@ -37,7 +38,10 @@ const Login = (props) => {
       navigate("/")
       showAlert("Logged in Successfully", "success")
     } else {
-      showAlert("Invalid Details", "danger")
+      showAlert("Wrong email or password", "danger")
+    }
+    } catch (err) {
+      showAlert("Failed to log in!\nPlease check your internet connection.", "danger")
     }
 
   }

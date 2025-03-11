@@ -1,5 +1,6 @@
 import React, {useContext} from "react"
 import NoteContext from "../context/notes/NoteContext.js"
+import "../App.css"
 
 const NoteItem = (props) => {
   const context = useContext(NoteContext);
@@ -12,11 +13,12 @@ const NoteItem = (props) => {
     showAlert
   } = props;
   return(
-    <div class="card col-md-3 mx-3 my-2">
+    <div class="card">
       <div class="card-body">
-        <div className="d-flex justify-content-between">
-          <h5 class="card-title">{note.title}</h5>
-          <div>
+        <div className="d-flex justify-content-between ">
+          <h4 class="card-title">{note.title}</h4>
+          <div className="no-wrap ">
+            <span class="badge rounded-pill p-2 mx-2 text-bg-dark">{note.tag}</span>
             <i className="fa-regular fa-trash-can mx-2"
             onClick = {()=>{deleteNote(note._id); showAlert("Deleted successfully", "success")}}
             ></i>
@@ -26,9 +28,11 @@ const NoteItem = (props) => {
           </div>
         </div>
 
-        <p class="card-text">
-          {note.description} {note.tag}
-        </p>
+        <div class="card-text"
+        style={{whiteSpace: "pre-wrap"}}
+        >
+          {note.description}
+        </div>
       </div>
     </div>
   )

@@ -1,4 +1,5 @@
 import React from "react";
+import "../App.css"
 
 const Alert = ({ alert }) => {
   // If no alert exists, don't render anything
@@ -6,12 +7,9 @@ const Alert = ({ alert }) => {
     return null;
   }
 
-  // Log alert details for debugging
-  console.log("message", alert.message, alert.type);
-
   return (
-    <div>
-      <div className={`alert alert-${alert.type}`} role="alert">
+    <div className="pos-bsolute w-100">
+      <div className={`alert p-2.5 alert-${alert.type}`} style={{whiteSpace: "pre-wrap"}} role="alert">
         {alert.message}
       </div>
     </div>

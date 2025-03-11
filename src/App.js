@@ -1,6 +1,5 @@
 import {
-  useState,
-  useEffect
+  useState
 } from "react"
 import Navbar from "./components/Navbar.js"
 import Home from "./components/Home.js"
@@ -9,6 +8,7 @@ import NoteState from "./context/notes/NoteState.js"
 import Alert from "./components/Alert.js"
 import Login from "./components/Login.js"
 import Signup from "./components/Signup.js"
+import Loader from "./components/Loader.js"
 
 
 import {
@@ -36,8 +36,9 @@ function App() {
 
   return (
     <>
-      <NoteState>
+      <NoteState showAlert={showAlert}>
         <Router>
+          <Loader/>
           <Navbar />
           <Alert alert={alert} />
           <div className="container">

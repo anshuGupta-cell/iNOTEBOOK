@@ -1,12 +1,18 @@
 import React, {
-  useState
+  useState,
 } from "react"
 import {
   useNavigate
 } from "react-router-dom";
+import "../App.css"
 
 const Signup = (props) => {
-const showAlert=props.showAlert
+
+  const showAlert = props.showAlert
+
+  const [passStat, setPassStat] = useState(true)
+  const [cpassStat, setcPassStat] = useState(true)
+  
   const [credentials,
     setCredentials] = useState( {
       name: "",
@@ -31,9 +37,10 @@ const showAlert=props.showAlert
       cpassword
     } = credentials;
     if (password !== cpassword) {
-      alert("Passwords do not match!");
+      showAlert("Passwords do not match!", "danger");
       return;
     }
+    try {
     const response = await fetch(`https://zany-goggles-inotebook-backend.onrender.com/api/auth/signup`, {
       method: 'POST',
       headers: {
@@ -49,11 +56,14 @@ const showAlert=props.showAlert
       localStorage.setItem("token", json.authtoken)
       navigate("/")
       showAlert("Account Created Successfully", "success")
-    }else {
+    } else {
       showAlert("Invalid Details", "danger")
     }
-
+    } catch (err) {
+      showAlert("Failed to sign up!\nPlease check your internet connection.", "danger")
+    }
   }
+
 
   return(
     <div className="container my-3">
@@ -76,13 +86,26 @@ const showAlert=props.showAlert
     </div>
     <div className="mb-3">
       <label htmlFor="password" className="form-label">Password</label>
-      <input type="password" className="form-control" id="password" name="password" value={credentials.password}onChange={onChange} minlength="5" required/>
+      <div className="pass-Cont">
+        <input type={passStat? "password": "text"} className="form-control" id="password" name="password"
+        value={credentials.password}onChange={onChange} minlength="5" required />
+
+      <i
+      onClick = {() => {setPassStat(!passStat)}}
+      className={`fa-solid eye-icon fa-eye${passStat ? "-slash": ""}`}></i>
+    </div>
+
   </div>
-  <div className="mb-3">
+  <div className="mb-3 pos-relative">
     <label htmlFor="cpassword" className="form-label">Confirm password</label>
-    <input type="password" className="form-control" id="cpassword" name="cpassword" aria-describedby="emailHelp" onChange={onChange}
-    value={credentials.cpassword} minlength="5" required
-    />
+    <div className="pass-Cont">
+      <input type={cpassStat ? "password" : "text"} className="form-control" id="cpassword" name="cpassword" aria-describedby="emailHelp" onChange={onChange}
+      value={credentials.cpassword} minlength="5" required
+      />
+    <i 
+    onClick = {() => {setcPassStat(!cpassStat)}}
+    className={`fa-solid eye-icon fa-eye${cpassStat ? "-slash": ""}`}></i>
+  </div>
 </div>
 
 <button type="submit" className="btn btn-primary">Submit</button>

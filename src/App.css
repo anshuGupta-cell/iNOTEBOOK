@@ -1,7 +1,70 @@
-*{
-  margin: 0;
-  padding: 0;
+* {
+    margin: 0;
+    padding: 0;
 }
-i{
-  cursor: pointer;
+i {
+    cursor: pointer;
+}
+.pos-absolute {
+    position: absolute;
+}
+.pos-relative {
+  position: relative;
+}
+
+.eye-icon {
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 5px;
+}
+.pass-Cont{
+  display: flex;
+  align-items: center;
+}
+
+.grid-box{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 10px;
+}
+.font-icon{
+  font-size: 1.5rem;
+  
+}
+
+.modal-footer{
+  display: flex;
+  justify-content: start;
+}
+
+.mr-1{
+  margin-right: 10px;
+}
+
+.loaded-cont{
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  background: #0000002e;
+  
+}
+.loader-bar{
+  width: 100%;
+  position: absolute;
+  height: 5px;
+  background: blue;
+  z-index: 1;
+}
+.loader-prog{
+  width: 50%;
+  height: 5px;
+  position: absolute;
+  background: pink;
+  z-index: 200;
+}
+.no-wrap {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  height: 1.3rem;
 }

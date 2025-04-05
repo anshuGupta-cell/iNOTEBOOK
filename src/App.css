@@ -512,3 +512,23 @@ a {
     }
   }
 }
+
+.dark-primary {
+  background: var(--primary-dark);
+  color: #fff;
+}
+
+.dark-primary:focus {
+  color: white;
+  background: var(--primary-dark);
+}
+
+.light-primary {
+  background: var(--primary-light);
+  color: #000;
+}
+
+.light-primary:focus {
+  color: black;
+  background: var(--primary-light);
+}

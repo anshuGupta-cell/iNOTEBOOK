@@ -1,15 +1,28 @@
 import React, {
   useState,
+  useContext
 } from "react"
 import {
   useNavigate
 } from "react-router-dom";
+import {
+  AlertContext,
+  ThemeContext
+} from "../context/notes/NoteContext.js"
 import "../App.css"
+import Button from "./Button.js"
 
 const Signup = (props) => {
-
-  const showAlert = props.showAlert
-
+  const alertContext = useContext(AlertContext)
+  const themeContext = useContext(ThemeContext)
+  
+  const {
+    showAlert
+  } = alertContext;
+  const {
+    theme
+  } = themeContext
+  
   const [passStat, setPassStat] = useState(true)
   const [cpassStat, setcPassStat] = useState(true)
   
@@ -66,28 +79,28 @@ const Signup = (props) => {
 
 
   return(
-    <div className="container my-3">
+    <div className={`container br-1 p-3 bg-${theme} my-3 focus-within`}>
       <h1>Sign up</h1>
       <form onSubmit={handleSubmit}>
         <div className="mb-3">
           <label htmlFor="name" className="form-label">Name</label>
-          <input type="text" className="form-control" id="name" name="name" aria-describedby="emailHelp" onChange={onChange}
+          <input type="text" className={`form-control focus-visible ${theme}-primary`} id="name" name="name" aria-describedby="emailHelp" onChange={onChange}
           value={credentials.name} required
           />
       </div>
       <div className="mb-3">
         <label htmlFor="email" className="form-label">Email address</label>
-        <input type="email" className="form-control" id="email" name="email" aria-describedby="emailHelp" onChange={onChange}
+        <input type="email" className={`form-control focus-visible ${theme}-primary`} id="email" name="email" aria-describedby="emailHelp" onChange={onChange}
         value={credentials.email} required
         />
-      <div id="emailHelp" className="form-text">
+      <div id="emailHelp" className={`form-text bg-${theme}`}>
         We'll never share your email with anyone else.
       </div>
     </div>
     <div className="mb-3">
       <label htmlFor="password" className="form-label">Password</label>
       <div className="pass-Cont">
-        <input type={passStat? "password": "text"} className="form-control" id="password" name="password"
+        <input type={passStat? "password": "text"} className={`form-control focus-visible ${theme}-primary`} id="password" name="password"
         value={credentials.password}onChange={onChange} minlength="5" required />
 
       <i
@@ -99,7 +112,7 @@ const Signup = (props) => {
   <div className="mb-3 pos-relative">
     <label htmlFor="cpassword" className="form-label">Confirm password</label>
     <div className="pass-Cont">
-      <input type={cpassStat ? "password" : "text"} className="form-control" id="cpassword" name="cpassword" aria-describedby="emailHelp" onChange={onChange}
+      <input type={cpassStat ? "password" : "text"} className={`form-control focus-visible ${theme}-primary`} id="cpassword" name="cpassword" aria-describedby="emailHelp" onChange={onChange}
       value={credentials.cpassword} minlength="5" required
       />
     <i 
@@ -108,7 +121,9 @@ const Signup = (props) => {
   </div>
 </div>
 
-<button type="submit" className="btn btn-primary">Submit</button>
+  <Button type="submit">
+    Submit
+  </Button>
 </form>
 </div>
 

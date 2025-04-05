@@ -1,16 +1,12 @@
-import {
-  useState
-} from "react"
+import React from "react"
 import Navbar from "./components/Navbar.js"
 import Home from "./components/Home.js"
 import About from "./components/About.js"
-import NoteState from "./context/notes/NoteState.js"
 import Alert from "./components/Alert.js"
 import Login from "./components/Login.js"
 import Signup from "./components/Signup.js"
 import Loader from "./components/Loader.js"
-
-
+import MyNotes from "./components/MyNotes.js"
 import {
   BrowserRouter as Router,
   Routes,
@@ -18,39 +14,31 @@ import {
 } from"react-router-dom";
 
 function App() {
-
-  const [alert,
-    setAlert] = useState(null)
-
-  const showAlert = (message, type) => {
-    setAlert({
-      message: message,
-      type: type
-    })
-
-    console.log("alert", alert)
-    setTimeout(() => {
-      setAlert(null)
-    }, 2000);
-  }
+  
+  
+  
 
   return (
     <>
-      <NoteState showAlert={showAlert}>
-        <Router>
-          <Loader/>
-          <Navbar />
-          <Alert alert={alert} />
-          <div className="container">
-            <Routes>
-              <Route path="/" element={<Home showAlert={showAlert} />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/login" element={<Login showAlert={showAlert} />} />
-              <Route path="/signup" element={<Signup showAlert={showAlert} />} />
-            </Routes>
-          </div>
-        </Router>
-      </NoteState>
+      <Router>
+        <Loader />
+        <Navbar />
+        <Alert alert={alert} />
+        <div className="container">
+          <Routes>
+            <Route path="/" element = {<Home />} />
+            
+            <Route path="/mynotes" element={<MyNotes />} />
+
+            <Route path="/about" element={<About />} />
+
+            <Route path="/login" element={<Login />} />
+
+            <Route path="/signup" element={<Signup />} />
+
+          </Routes>
+        </div>
+      </Router>
     </>
   )
 }

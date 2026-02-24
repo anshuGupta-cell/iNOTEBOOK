@@ -74,7 +74,7 @@ const Login = (props) => {
 
 
   return(
-    <div className={`container br-1 p-3 bg-${theme} my-3 focus-within`}>
+    <div className={`container br-1 p-3 bg-${theme} my-3 focus-within login-container`}>
       <h2>Login</h2>
       <form onSubmit={handleSubmit}>
         <div className="mb-3">

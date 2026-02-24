@@ -21,7 +21,7 @@ const Navbar = () => {
 
     <nav className={`navbar bg-${theme}`}>
       <div className="d-flex justify-content-between w-100">
-        <span className=" fs-3 f-bold align-center">iNOTEBOOK</span>
+        <span className=" fs-3 f-bold align-center">AdityaP</span>
         <ul className="nav-box-login" style={ { fontSize: "0.8rem" }}>
           {(!localStorage.getItem("token"))?<>
             <li className="nav-item ">

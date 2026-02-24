@@ -63,14 +63,16 @@ const About = () => {
     },
     {
       id: 3,
-      title: "Contact me",
+      title: "About me",
       content: (
         <>
           <ul>
-            <li><strong>Name:</strong> Anshu Gupta</li>
-            <li><strong>Email:</strong> <i>anshuguptacell@gmail.com</i></li>
-            <li><strong>GitHub:</strong> <a href="https://github.com/anshugupta-cell" target="_blank" rel="noopener noreferrer">Anshu's GitHub</a></li>
-            <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn Profile</a></li>
+            <li><strong>Name:</strong> Aditya Vinayak Pardeshi</li>
+            <li><strong>Class:</strong> T.Y.Bcs</li>
+            <li><strong>University:</strong> Savitribai Phule Pune University ( SPPU )</li>
+            {/* <li><strong>Email:</strong> <i>anshuguptacell@gmail.com</i></li> */}
+            {/* <li><strong>GitHub:</strong> <a href="https://github.com/anshugupta-cell" target="_blank" rel="noopener noreferrer">Anshu's GitHub</a></li> */}
+            {/* <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn Profile</a></li> */}
           </ul>
         </>
       )

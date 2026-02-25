@@ -17,7 +17,7 @@ const Login = (props) => {
   const proContext = useContext(ProgressContext)
   const alertContext = useContext(AlertContext)
   const themeContext = useContext(ThemeContext)
-  
+
   const [passStat, setPassStat] = useState(true)
   const {
     showProg
@@ -31,7 +31,7 @@ const Login = (props) => {
   } = themeContext
 
   const [credentials,
-    setCredentials] = useState( {
+    setCredentials] = useState({
       email: "", password: ""
     })
   const navigate = useNavigate()
@@ -73,36 +73,37 @@ const Login = (props) => {
   }
 
 
-  return(
+  return (
     <div className={`container br-1 p-3 bg-${theme} my-3 focus-within login-container`}>
       <h2>Login</h2>
       <form onSubmit={handleSubmit}>
         <div className="mb-3">
           <label htmlFor="email" className="form-label">Email address</label>
           <input type="email" className={`form-control focus-visible ${theme}-primary`} id="email" name="email" aria-describedby="emailHelp" onChange={onChange}
-          value={credentials.email}
-          required
+            value={credentials.email}
+            required
           />
-        <div id="emailHelp" className={`form-text bg-${theme}`}>
-          We'll never share your email with anyone else.
+          <div id="emailHelp" className={`form-text bg-${theme}`}>
+            We'll never share your email with anyone else.
+          </div>
         </div>
-      </div>
-      <div className="mb-3">
-        <label htmlFor="password" className="form-label">Password</label>
-        <div className="pass-Cont">
-        <input type={passStat?"password": "text"} className={`form-control focus-visible ${theme}-primary`} id="password" name="password" value={credentials.password}onChange={onChange} required />
-      <i
-        onClick={() => { setPassStat(!passStat)}}
-        className={`fa-solid  eye-icon fa-eye${passStat ? "-slash": ""}`}></i>
+        <div className="mb-3">
+          <label htmlFor="password" className="form-label">Password</label>
+          <div className="pass-Cont">
+            <input type={passStat ? "password" : "text"} className={`form-control focus-visible ${theme}-primary`} id="password" name="password" value={credentials.password} onChange={onChange} required />
+            <i
+              onClick={() => { setPassStat(!passStat) }}
+              className={`fa-solid  eye-icon fa-eye${passStat ? "-slash" : ""}`}>
+            </i>
+          </div>
         </div>
-    </div>
 
-    <Button type="submit">
-      Submit
-    </Button>
-  </form>
-</div>
-)
+        <Button type="submit">
+          Submit
+        </Button>
+      </form>
+    </div>
+  )
 }
 
 export default Login;

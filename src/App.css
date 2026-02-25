@@ -50,18 +50,20 @@ i {
 }
 
 .pass-Cont {
-  display: flex;
-  align-items: center;
+  display: grid;
   position: relative;
+
+  .eye-icon {
+    position: absolute;
+    top: .25rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 5px;
+    background: hsla(0, 0%, 0%, 0.105);
+    border-radius: .5rem;
+  }
 }
 
-.eye-icon {
-  position: absolute;
-  right: 10px;
-  font-size: 1.2rem;
-  cursor: pointer;
-  padding: 5px;
-}
 
 .grid-box {
   display: grid;
@@ -614,10 +616,11 @@ a {
 }
 
 /* Background Gradient */
-.root{
+.root {
   background: linear-gradient(135deg, #6366f1, #a855f7, #ec4899);
 
 }
+
 .signup-wrapper {
   height: 100%;
   display: grid;
@@ -629,13 +632,13 @@ a {
 
 /* Glass Card */
 .glass-card {
-  
+
   width: 100%;
   max-width: 720px;
   padding: 25px;
   border-radius: 20px;
   backdrop-filter: blur(15px);
-    background: linear-gradient(135deg, #6366f1, #a855f7, #ec4899);
+  background: linear-gradient(135deg, #6366f1, #a855f7, #ec4899);
 
   border: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);

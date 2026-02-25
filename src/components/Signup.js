@@ -80,7 +80,7 @@ const Signup = (props) => {
 
   return(
     <div className={`container br-1 p-3 bg-${theme} my-3 focus-within login-container`}>
-      <h1>Sign up</h1>
+      <h2>Sign up</h2>
       <form onSubmit={handleSubmit}>
         <div className="mb-3">
           <label htmlFor="name" className="form-label">Name</label>
